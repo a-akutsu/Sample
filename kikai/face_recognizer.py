@@ -3,6 +3,7 @@ import numpy as np
 import pickle
 from sklearn import svm
 
+
 def resize_image(image, height, width):
     # 元々のサイズを取得
     org_height, org_width = image.shape[:2]
@@ -18,7 +19,7 @@ def resize_image(image, height, width):
 
 def mag_change(bai, img):
     # グレースケール変換
-    frame_gray =cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    frame_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # 顔認識処理を早くするために、画像の解像度を下げる。画像サイズを取得し、サイズを変更する
     orgHeight, orgWidth = frame_gray.shape[:2]
     frame_gray_size = (int(orgWidth/bai), int(orgHeight/bai))
@@ -47,7 +48,8 @@ if __name__ == "__main__":
         result = frame
 
         # 顔認識を低解像度で実施するための準備
-        mag = 3 # 倍率
+        # 倍率
+        mag = 3
         resized = mag_change(mag, frame)
 
         # 顔認識の実行
