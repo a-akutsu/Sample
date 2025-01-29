@@ -103,4 +103,3 @@ if __name__ == "__main__":
     # 内蔵カメラを終了
     cap.release()
     cv2.destroyAllWindows()
-
